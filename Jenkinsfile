@@ -29,6 +29,13 @@ pipeline{
 				fingerprint: true
 			}
 		}
+		stage('Deploy'){
+			steps{
+				echo 'Deploying to local machine...'
+				bat 'copy target\\genkin-practise-0.0.1-SNAPSHOT.jar C:\\STS_Workspaces\\Gekins_Workspace\\Genkins-Deploy'
+				bat 'start java -jar C:\\STS_Workspaces\\Gekins_Workspace\\Genkins-Deploy\\genkin-practise-0.0.1-SNAPSHOT.jar'
+			}
+		}
 	}
 
 }
