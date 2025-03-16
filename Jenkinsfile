@@ -18,14 +18,14 @@ pipeline{
 				bat 'mvn clean package'
 			}
 		}
-		stage(){
+		stage('Run Tests){
 			steps{
 				bat 'mvn test'
 			}
 		}
 		stage('Archieve Artifacts'){
 			steps{
-				archiveArtifacts 'target/*.jar',
+				archiveArtifacts artifacts:'target/*.jar',
 				fingerprint: true
 			}
 		}
